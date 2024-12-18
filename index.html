@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #000000; /* 背景色を黒に */
+      }
+
+      .fullscreen-image {
+        position: absolute;
+        top: 10px; /* ボーダー内に表示するための調整 */
+        left: 10px; /* ボーダー内に表示するための調整 */
+        width: calc(100% - 20px); /* ボーダー内に表示するための調整 */
+        height: calc(100% - 60px); /* ボーダー内に表示するための調整 */
+        object-fit: cover;
+        z-index: 0;
+        border-radius: 10px; /* 画像にもボーダーの角丸を適用 */
+        background-color: #1e4dba;
+      }
+
+      .border-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-image: url("bc6788c228f8012f.png") 81 / 8% / 100 round;
+        border-radius: 10px; /* 枠線の丸みを減少 */
+        pointer-events: none;
+        z-index: 2;
+        overflow: hidden;
+        box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.5); /* 内側の丸みを帯びた影を追加 */
+      }
+
+      .taskbar {
+        position: absolute;
+        bottom: 10px; /* ボーダー内に表示するための調整 */
+        left: 10px; /* ボーダー内に表示するための調整 */
+        width: calc(100% - 20px); /* ボーダー内に表示するための調整 */
+        height: 40px;
+        /* background-color: #1c1c1c; */
+        border-top: 2px solid #ffffff;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        z-index: 3;
+        border-radius: 0 0 10px 10px; /* タスクバーの角丸を適用 */
+      }
+
+      .start-button {
+        width: 80px;
+        height: 30px;
+        background-color: #1e4dba;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+  </head>
+  <body>
+    <img alt="Fullscreen Image" class="fullscreen-image" />
+    <div>
+      <div
+        class="window"
+        style="width: 300px; position: absolute; top: 20%; left: 20%"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">うそのにく</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>usononiku.exeは停止したりしなかったりしています...</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="window"
+        style="width: 300px; position: absolute; top: 25%; left: 22%"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">うそのにく</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>usononiku.exe: 信頼されたソースから回復手段を検索中...</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="window"
+        style="width: 300px; position: absolute; top: 30%; left: 24%"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">うそのにく</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>usononiku.exe: コマンドが拒絶されました</p>
+          <p>executed command has been rejected by your own.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="window"
+        style="width: 300px; position: absolute; top: 37%; left: 26%"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">うそのにく</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>usononiku.exe: usononikuの権限を要請しています</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="window"
+        style="width: 300px; position: absolute; top: 42%; left: 28%"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">うそのにく</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>usononiku.exe: usononikuの権限を再要求しています</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="window"
+        style="width: 300px; position: absolute; top: 47%; left: 30%"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">うそのにく</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>usononiku.exe: 要求は棄却されました</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="window"
+        style="width: 300px; position: absolute; top: 52%; left: 32%"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">うそのにく</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>usononiku.exe の権限がありません</p>
+          <p>システムを終了します</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-overlay"></div>
+    <!-- <div class="taskbar">
+      <button class="start-button">Start</button>
+    </div> -->
+  </body>
+</html>

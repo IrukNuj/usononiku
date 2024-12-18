@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #000000; /* 背景色を黒に */
+      }
+
+      .fullscreen-image {
+        position: absolute; /* 変更: fixedからabsoluteへ */
+        top: 10px; /* ボーダー内に表示するための調整 */
+        left: 10px; /* ボーダー内に表示するための調整 */
+        width: calc(100% - 20px); /* ボーダー内に表示するための調整 */
+        height: calc(100% - 60px); /* ボーダー内に表示するための調整 */
+        object-fit: cover;
+        z-index: 1;
+        border-radius: 15px; /* 画像にもボーダーの角丸を適用 */
+      }
+
+      .border-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 5px solid #1e4dba; /* 外側の枠線の色を変更 */
+        border-radius: 10px; /* 枠線の丸みを減少 */
+        box-shadow:
+          inset 0 0 0 2px #3981eb,
+          inset 0 0 0 8px #0a1c41; /* 内側の枠線を太く */
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .taskbar {
+        position: absolute; /* 変更: fixedからabsoluteへ */
+        bottom: 10px; /* ボーダー内に表示するための調整 */
+        left: 10px; /* ボーダー内に表示するための調整 */
+        width: calc(100% - 20px); /* ボーダー内に表示するための調整 */
+        height: 40px;
+        background-color: #1c1c1c;
+        border-top: 2px solid #ffffff;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        z-index: 3;
+        border-radius: 0 0 15px 15px; /* タスクバーの角丸を適用 */
+      }
+
+      .start-button {
+        width: 80px;
+        height: 30px;
+        background-color: #1e4dba;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="https://lecture.ecc.u-tokyo.ac.jp/JOHZU/joho/imageformat/images/image01.jpg"
+      alt="Fullscreen Image"
+      class="fullscreen-image"
+    />
+    <div class="border-overlay"></div>
+    <div class="taskbar">
+      <button class="start-button">Start</button>
+    </div>
+  </body>
+</html>
